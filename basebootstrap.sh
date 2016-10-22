@@ -29,3 +29,11 @@ echo "cd ~/$PROJECT_NAME/" >> ~/.profile;
 sudo -u postgres psql -c  "CREATE USER vagrant WITH PASSWORD 'vagrant';"
 sudo su postgres -c "createdb -E UTF8 -T template0 --locale=en_US.utf8 -O vagrant $PROJECT_NAME"
 
+# # redis
+# sudo add-apt-repository ppa:chris-lea/redis-server -y
+# sudo apt-get update
+# sudo apt-get install -y redis-server
+
+# # Nodejs
+# curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# sudo apt-get install -y nodejs
