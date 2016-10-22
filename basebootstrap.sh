@@ -29,6 +29,11 @@ echo "cd ~/$PROJECT_NAME/" >> ~/.profile;
 sudo -u postgres psql -c  "CREATE USER vagrant WITH PASSWORD 'vagrant';"
 sudo su postgres -c "createdb -E UTF8 -T template0 --locale=en_US.utf8 -O vagrant $PROJECT_NAME"
 
+/home/vagrant/$PROJECT_NAME/env/bin/pip install -r /home/vagrant/$PROJECT_NAME/requirements.txt;
+
+# Django project setup
+sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
+
 # # redis
 # sudo add-apt-repository ppa:chris-lea/redis-server -y
 # sudo apt-get update
