@@ -40,19 +40,18 @@ mkdir settings
 mv settings.py settings/base.py
 cd settings
 
-echo "\nDB_NAME=$PROJECT_NAME" >> PROJECT_DIR/config/local_settings.py
-ln -s PROJECT_DIR/config/local_settings.py ./local.py
-
-sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
+ln -s $PROJECT_DIR/config/local_settings.py ./local.py
 
 echo "
-from .base import *
-
 try:
 	from local import *
 except ImportError:
-	pass
+	from .base import *
 " > __init__.py
+
+echo "\nDB_NAME=$PROJECT_NAME" >> PROJECT_DIR/config/local_settings.py
+
+sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
 
 
 # # redis
