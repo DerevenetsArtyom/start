@@ -45,10 +45,12 @@ cd settings
 ln -s $PROJECT_DIR/config/local_settings.py ./local.py
 
 echo "DB_NAME='$PROJECT_NAME'
+from base import *
+
 try:
 	from local import *
 except ImportError:
-	from .base import *
+	pass
 " > __init__.py
 
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
