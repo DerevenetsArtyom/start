@@ -60,6 +60,8 @@ from .local_settings import *
 
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
 
+mv $PROJECT_DIR/config/urls.py $PROJECT_DIR/$PROJECT_NAME/$PROJECT_DIR/urls.py
+
 
 # redis
 sudo add-apt-repository ppa:chris-lea/redis-server -y

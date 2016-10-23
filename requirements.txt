@@ -10,3 +10,4 @@ pytz==2016.6.1
 jsonfield==1.0.3
 ipython==5.0.0
 fabric3
+psycopg2==2.6.2
