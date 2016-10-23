@@ -38,6 +38,9 @@ sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR
 cd $PROJECT_DIR/$PROJECT_NAME/$PROJECT_NAME/
 mkdir settings
 
+mv settings.py settings/base.py
+cd settings
+
 echo "
 from .base import *
 
@@ -47,7 +50,6 @@ except ImportError:
 	pass
 " > __init__.py
 
-mv settings.py settings/base.py
 
 # # redis
 # sudo add-apt-repository ppa:chris-lea/redis-server -y
