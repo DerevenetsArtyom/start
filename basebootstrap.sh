@@ -51,6 +51,7 @@ mv settings.py settings/base.py
 cd settings
 
 mv $PROJECT_DIR/config/local_settings.py ./local_settings.py
+mkdir $PROJECT_DIR/$PROJECT_NAME/logs
 
 
 echo "
