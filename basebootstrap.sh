@@ -36,21 +36,26 @@ sudo su postgres -c "createdb -E UTF8 -T template0 --locale=en_US.utf8 -O vagran
 # Django project setup
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR && django-admin startproject $PROJECT_NAME"
 
+cd $PROJECT_DIR/config/
+
+echo "DB_NAME='$PROJECT_NAME'" > newfile
+cat local_settings.py >> newfile
+mv newfile local_settings.py
+
 cd $PROJECT_DIR/$PROJECT_NAME/$PROJECT_NAME/
 mkdir settings
+
+
 
 mv settings.py settings/base.py
 cd settings
 
-ln -s $PROJECT_DIR/config/local_settings.py ./local.py
+mv $PROJECT_DIR/config/local_settings.py ./local_settings.py
 
-echo "DB_NAME='$PROJECT_NAME'
-from base import *
 
-try:
-	from local import *
-except ImportError:
-	pass
+echo "
+from .base import *
+from .local_settings import *
 " > __init__.py
 
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"

@@ -1,5 +1,9 @@
-from .defaults import *
 from django.utils.translation import ugettext_lazy as _
+from kombu import Exchange, Queue
+from .base import INSTALLED_APPS, MIDDLEWARE, BASE_DIR
+
+import os
+
 
 LANGUAGE_CODE = 'en'
 
