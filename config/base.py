@@ -1,4 +1,4 @@
-from .defaults import INSTALLED_APPS, MIDDLEWARE_CLASSES, DB_NAME
+from .defaults import *
 
 # LANGUAGE_CODE = 'en'
 
