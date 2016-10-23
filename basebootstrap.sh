@@ -41,6 +41,8 @@ mkdir settings
 mv settings.py settings/base.py
 cd settings
 
+ln -s PROJECT_DIR/config/local_settings.py ./local.py
+
 echo "
 from .base import *
 
