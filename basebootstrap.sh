@@ -32,7 +32,22 @@ sudo su postgres -c "createdb -E UTF8 -T template0 --locale=en_US.utf8 -O vagran
 /home/vagrant/$PROJECT_NAME/env/bin/pip install -r /home/vagrant/$PROJECT_NAME/requirements.txt;
 
 # Django project setup
+sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR && django-admin startproject $PROJECT_NAME"
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
+
+cd $PROJECT_DIR/$PROJECT_NAME/$PROJECT_NAME/
+mkdir settings
+
+echo "
+from .base import *
+
+try:
+	from local import *
+except ImportError:
+	pass
+" > __init__.py
+
+mv settings.py settings/base.py
 
 # # redis
 # sudo add-apt-repository ppa:chris-lea/redis-server -y
