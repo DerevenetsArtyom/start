@@ -104,6 +104,10 @@ LOGGING = {
     }
 }
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, '..', 'locale'),
+]
+
 # email
 
 EMAIL_USE_TLS = True
