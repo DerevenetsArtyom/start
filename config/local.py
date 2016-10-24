@@ -1,6 +1,6 @@
 from django.utils.translation import ugettext_lazy as _
 from kombu import Exchange, Queue
-from .base import INSTALLED_APPS, MIDDLEWARE, BASE_DIR
+from .base import INSTALLED_APPS, MIDDLEWARE, BASE_DIR, DB_NAME
 
 import os
 
@@ -45,8 +45,6 @@ LANGUAGES = [
   ('en', _('English')),
 ]
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
