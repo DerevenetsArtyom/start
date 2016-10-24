@@ -69,7 +69,7 @@ cat $PROJECT_DIR/makefile >> $PROJECT_DIR/newfile
 mv $PROJECT_DIR/newfile $PROJECT_DIR/makefile
 
 rm $PROJECT_DIR/init.sh $PROJECT_DIR/bootstrap.sh
-mv $PROJECT_DIR/last_bootstrap.sh $PROJECT_DIR/bootstrap.sh
+mv $PROJECT_DIR/last_middle_bootstrap.sh $PROJECT_DIR/bootstrap.sh
 
 
 # redis
