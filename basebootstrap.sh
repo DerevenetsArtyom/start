@@ -50,7 +50,7 @@ mkdir settings
 mv settings.py settings/base.py
 cd settings
 
-mv $PROJECT_DIR/config/local_settings.py ./local_settings.py
+mv $PROJECT_DIR/config/local.py ./local_settings.py
 mkdir $PROJECT_DIR/$PROJECT_NAME/logs
 
 
@@ -62,6 +62,12 @@ from .local_settings import *
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
 
 mv $PROJECT_DIR/config/urls.py $PROJECT_DIR/$PROJECT_NAME/$PROJECT_NAME/urls.py
+
+echo "NAMEDIR=$PROJECT_NAME" > $PROJECT_DIR/newfile
+cat $PROJECT_DIR/makefile >> $PROJECT_DIR/newfile
+mv $PROJECT_DIR/newfile $PROJECT_DIR/makefile
+
+rm $PROJECT_DIR/init.sh $PROJECT_DIR/bootstrap.sh
 
 
 # redis
