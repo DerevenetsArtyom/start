@@ -105,7 +105,7 @@ LOGGING = {
 }
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, '..', 'locale'),
+    os.path.join(BASE_DIR, '', 'locale'),
 ]
 
 # email

@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls import include, url
+from django.views.i18n import javascript_catalog
+
+js_info_dict = {}
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^jsi18n/', javascript_catalog, js_info_dict, name='javascript-catalog'),
 ]
 
 if settings.DEBUG:
