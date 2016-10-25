@@ -21,6 +21,8 @@ sudo apt-get install git -y;
 # Postgresql
 sudo apt-get install -y postgresql libpq-dev
 
+sudo apt-get install -y gettext 
+
 # Virtual environment
 sudo pip3 install virtualenv;
 virtualenv $VIRTUALENV_DIR --python=/usr/bin/python3.5;
