@@ -69,15 +69,14 @@ cat $PROJECT_DIR/makefile >> $PROJECT_DIR/newfile
 mv $PROJECT_DIR/newfile $PROJECT_DIR/makefile
 
 rm $PROJECT_DIR/init.sh $PROJECT_DIR/bootstrap.sh
-echo "PROJECT_NAME=$PROJECT_NAME" > bootstrap.sh
+echo "PROJECT_NAME=$PROJECT_NAME" > $PROJECT_DIR/bootstrap.sh
 cat $PROJECT_DIR/last_middle_bootstrap.sh >> $PROJECT_DIR/bootstrap.sh
 
-rm $PROJECT_DIR/last_middle_bootstrap.sh
+# rm $PROJECT_DIR/last_middle_bootstrap.sh
 
 sudo apt-get install -y gettext 
 
-cd $PROJECT_DIR/
-make messages
+make $PROJECT_DIR/messages
 
 
 # redis
