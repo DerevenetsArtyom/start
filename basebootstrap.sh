@@ -76,7 +76,7 @@ cat $PROJECT_DIR/last_middle_bootstrap.sh >> $PROJECT_DIR/bootstrap.sh
 
 sudo apt-get install -y gettext 
 
-make $PROJECT_DIR/messages
+cd $PROJECT_DIR/ && make messages
 
 
 # redis
