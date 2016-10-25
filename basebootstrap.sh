@@ -76,7 +76,7 @@ cat $PROJECT_DIR/last_middle_bootstrap.sh >> $PROJECT_DIR/bootstrap.sh
 
 sudo apt-get install -y gettext 
 
-sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate cd $PROJECT_DIR/ && make messages"
+sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR/ && make messages"
 
 # redis
 sudo add-apt-repository ppa:chris-lea/redis-server -y
