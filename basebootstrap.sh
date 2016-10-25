@@ -18,6 +18,7 @@ sudo add-apt-repository ppa:fkrull/deadsnakes -y;
 sudo apt-get update;
 sudo apt-get install python3.5 python3-pip python3.5-dev -y;
 sudo apt-get install git -y;
+sudo apt-get install -y gettext 
 # Postgresql
 sudo apt-get install -y postgresql libpq-dev
 
@@ -51,7 +52,7 @@ mv settings.py settings/base.py
 echo "DB_NAME='$PROJECT_NAME'" >> settings/base.py
 cd settings
 
-mv $PROJECT_DIR/config/local.py ./local_settings.py
+ln -s $PROJECT_DIR/config/local.py ./local_settings.py
 mkdir $PROJECT_DIR/$PROJECT_NAME/logs
 
 
@@ -74,7 +75,7 @@ cat $PROJECT_DIR/last_middle_bootstrap.sh >> $PROJECT_DIR/bootstrap.sh
 
 # rm $PROJECT_DIR/last_middle_bootstrap.sh
 
-sudo apt-get install -y gettext 
+
 
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR/ && make messages"
 
