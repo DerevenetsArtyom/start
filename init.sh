@@ -15,9 +15,5 @@ Vagrant.configure('2') do |config|
   end
 end" > Vagrantfile
 
-echo "#!/bin/bash 
-
-PROJECT_NAME='$1'\n" > bootstrap.sh
-
-cat basebootstrap.sh  >> bootstrap.sh
-
+sed -i "1 i #!/bin/bash " bootstrap.sh
+sed -i "1 i PROJECT_NAME='$1'" bootstrap.sh
