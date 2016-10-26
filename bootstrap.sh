@@ -48,7 +48,9 @@ mkdir settings
 
 mv settings.py settings/base.py
 echo "DB_NAME='$PROJECT_NAME'" >> settings/base.py
-cd settings
+cat $PROJECT_DIR/config/settings_default.py >> $PROJECT_DIR/$PROJECT_NAME/$PROJECT_NAME/base.py
+rm $PROJECT_DIR/config/settings_default.py
+cd $PROJECT_DIR/$PROJECT_NAME/$PROJECT_NAME/settings
 
 ln -s $PROJECT_DIR/config/local.py ./local_settings.py
 mkdir $PROJECT_DIR/$PROJECT_NAME/logs

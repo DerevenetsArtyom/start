@@ -27,11 +27,11 @@ sudo su postgres -c "createdb -E UTF8 -T template0 --locale=en_US.utf8 -O vagran
 sudo add-apt-repository ppa:fkrull/deadsnakes -y
 sudo apt-get update
 sudo apt-get install python3.5 python3-pip python3.5-dev -y
-/home/vagrant/$PROJECT_NAME/env/bin/pip install -r /home/vagrant/$PROJECT_NAME/requirements.txt
 
 # Virtual environment
 sudo pip3 install virtualenv
 virtualenv $VIRTUALENV_DIR --python=/usr/bin/python3.5
+/home/vagrant/$PROJECT_NAME/env/bin/pip install -r /home/vagrant/$PROJECT_NAME/requirements.txt
 
 echo "source $VIRTUALENV_DIR/bin/activate" >> ~/.profile
 echo "cd ~/$PROJECT_NAME/" >> ~/.profile
