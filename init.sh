@@ -17,3 +17,15 @@ end" > Vagrantfile
 
 sed -i "1 i #!/bin/bash " bootstrap.sh
 sed -i "1 i PROJECT_NAME='$1'" bootstrap.sh
+
+echo "
+import multiprocessing
+import os
+
+os.environ['DJANGO_SETTINGS_MODULE'] = '$1.settings'
+
+bind = '0.0.0.0:8833'
+workers = multiprocessing.cpu_count() * 4 + 1
+" > config/gunicorn.conf.py
+
+git init $1
