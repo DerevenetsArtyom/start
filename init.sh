@@ -27,5 +27,3 @@ os.environ['DJANGO_SETTINGS_MODULE'] = '$1.settings'
 bind = '0.0.0.0:8833'
 workers = multiprocessing.cpu_count() * 4 + 1
 " > config/gunicorn.conf.py
-
-git init $1
