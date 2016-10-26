@@ -53,8 +53,10 @@ cd settings
 ln -s $PROJECT_DIR/config/local.py ./local_settings.py
 mkdir $PROJECT_DIR/$PROJECT_NAME/logs
 
-sed -i "1 i from .base import *" __init.py
-sed -i "1 i from .local_settings import *" __init.py
+echo "
+from .base import *
+from .local_settings import *
+" > __init__.py
 
 sudo su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && python $PROJECT_DIR/$PROJECT_NAME/manage.py migrate"
 
