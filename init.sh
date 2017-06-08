@@ -2,7 +2,7 @@ echo "# -*- mode: ruby -*-
 # vi: set ft=ruby :
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'ubuntu/trusty64'
+  config.vm.box = 'ubuntu/trusty32'
 
   config.vm.network :forwarded_port, guest: 8000,  host: 8000,  auto_correct: true
   config.vm.network :forwarded_port, guest: 9000,  host: 9000,  auto_correct: true
